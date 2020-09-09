@@ -2,8 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-	  <ProjectGuid>13837b08-8ea0-404e-8d16-16344cae23ab</ProjectGuid>  
+	  <ProjectGuid>13837b08-8ea0-404e-8d16-16344cae23ab</ProjectGuid>
+	  <CodeAnalysisRuleSet>..\.sonarlint\apicontagemcsharp.ruleset</CodeAnalysisRuleSet>  
   </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\.sonarlint\apicontagem\CSharp\SonarLint.xml" Link="SonarLint.xml" />
+  </ItemGroup>
 
 
 </Project>

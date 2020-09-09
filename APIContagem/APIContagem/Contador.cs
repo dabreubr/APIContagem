@@ -26,10 +26,32 @@ namespace APIContagem
         public string Local { get => _LOCAL; }
         public string Kernel { get => _KERNEL; }
         public string TargetFramework { get => _TARGET_FRAMEWORK; }
+        public string password = "*123";
 
         public void Incrementar()
         {
             _valorAtual++;
+        }
+
+        public void Decrementar()
+        {
+            try
+            {
+                _valorAtual--;
+            }
+            catch { }
+        }
+
+        public void executa(string acao)
+        {
+            if (acao == "I")
+            {
+                _valorAtual++;
+            }
+            else
+            {
+                _valorAtual++;
+            }
         }
     }
 }

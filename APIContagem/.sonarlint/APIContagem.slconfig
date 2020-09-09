@@ -1,0 +1,12 @@
+{
+  "ServerUri": "http://localhost:9000",
+  "Organization": null,
+  "ProjectKey": "APIContagem",
+  "ProjectName": "APIContagem",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "AXR0M3K3H1aRG7UdHhfe",
+      "ProfileTimestamp": "2020-09-09T18:49:22Z"
+    }
+  }
+}
