@@ -39,5 +39,19 @@ namespace APIContagem.Controllers
                 });
             }
         }
+
+        [HttpPost]
+        public ActionResult Adicionar(int input)
+        {
+            return new OkObjectResult(new
+            {
+                _CONTADOR.ValorAtual,
+                _CONTADOR.Local,
+                _CONTADOR.Kernel,
+                _CONTADOR.TargetFramework,
+                MensagemFixa = "Teste local",
+                MensagemVariavel = Environment.GetEnvironmentVariable("MensagemVariavel")
+            });
+        }
     }
 }

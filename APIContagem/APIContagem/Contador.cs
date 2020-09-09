@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Versioning;
+using System.Security.Cryptography;
 
 namespace APIContagem
 {
@@ -26,7 +29,18 @@ namespace APIContagem
         public string Local { get => _LOCAL; }
         public string Kernel { get => _KERNEL; }
         public string TargetFramework { get => _TARGET_FRAMEWORK; }
+        public string host = "192.168.0.1";
         public string password = "*123";
+        public static List<String> strings3 = new List<String>();  // Noncompliant
+
+        AesManaged aes4 = new AesManaged
+        {
+            KeySize = 128,
+            BlockSize = 128,
+            Mode = CipherMode.ECB, // Noncompliant
+            Padding = PaddingMode.PKCS7
+        };
+
 
         public void Incrementar()
         {
@@ -39,7 +53,10 @@ namespace APIContagem
             {
                 _valorAtual--;
             }
-            catch { }
+            catch (Exception exc) 
+            { 
+
+            }
         }
 
         public void executa(string acao)
@@ -52,6 +69,12 @@ namespace APIContagem
             {
                 _valorAtual++;
             }
+        }
+
+        public void xml(string stream)
+        {
+            var myBinaryFormatter = new BinaryFormatter();
+            myBinaryFormatter.Deserialize(stream); // Noncompliant: a binder is not used to limit types during deserialization
         }
     }
 }

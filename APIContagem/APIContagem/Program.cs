@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -13,7 +14,13 @@ namespace APIContagem
     {
         public static void Main(string[] args)
         {
+            var dsa1 = new DSACryptoServiceProvider(); // Noncompliant - default key size is 1024
+            var simpleDES = new DESCryptoServiceProvider(); // Noncompliant: DES works with 56-bit keys allow attacks via exhaustive search
+            var tripleDES = new TripleDESCryptoServiceProvider();
+
             CreateHostBuilder(args).Build().Run();
+
+            Console.WriteLine("so far, so good..."); // Noncompliant
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
