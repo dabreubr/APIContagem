@@ -34,7 +34,7 @@ namespace APIContagem.Controllers
                     _CONTADOR.Local,
                     _CONTADOR.Kernel,
                     _CONTADOR.TargetFramework,
-                    MensagemFixa = "Demo DevSecOps",
+                    MensagemFixa = "Demo DevSecOps Impacta",
                     MensagemVariavel = Environment.GetEnvironmentVariable("MensagemVariavel")
                 });
             }
