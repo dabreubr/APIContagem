@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Security;
 using System.Security.Permissions;
 
-
+[assembly: AllowPartiallyTrustedCallersAttribute()]
 namespace APIContagem
 {
     [Serializable]
