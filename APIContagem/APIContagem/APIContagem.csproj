@@ -10,5 +10,9 @@
     <AdditionalFiles Include="..\.sonarlint\apicontagem\CSharp\SonarLint.xml" Link="SonarLint.xml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+  </ItemGroup>
+
 
 </Project>

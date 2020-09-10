@@ -43,6 +43,9 @@ namespace APIContagem.Controllers
         [HttpPost]
         public ActionResult Adicionar(int input)
         {
+            Response.Headers.Add("Set-Cookie", "123"); // Sensitive
+            Response.Cookies.Append("mykey", "myValue"); // Sensitive
+
             return new OkObjectResult(new
             {
                 _CONTADOR.ValorAtual,

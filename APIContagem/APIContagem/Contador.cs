@@ -76,5 +76,24 @@ namespace APIContagem
             var myBinaryFormatter = new BinaryFormatter();
             myBinaryFormatter.Deserialize(stream); // Noncompliant: a binder is not used to limit types during deserialization
         }
+
+        public string Randomico()
+        {
+            var random = new Random(); // Sensitive use of Random
+            byte[] data = new byte[16];
+            random.NextBytes(data);
+            return BitConverter.ToString(data); // Check if this value is used for hashing or encryption
+
+        }
+
+        public void Foo(string param)
+        {
+            using (var context = new SampleContext())
+            {
+                string query = $"SELECT * FROM mytable WHERE mycol={param}";
+                context.Database.ExecuteSqlCommand(query); // Sensitive, the FormattableString has already been evaluated, it won't be converted to a parametrized query.
+            }
+        }
+
     }
 }
