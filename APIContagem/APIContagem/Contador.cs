@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Versioning;
@@ -88,10 +90,15 @@ namespace APIContagem
 
         public void Foo(string param)
         {
-            var context = new SampleContext();
             string query = $"SELECT * FROM mytable WHERE mycol=";
             string sensitiveQuery = string.Concat(query, param);
-            context.Database.ExecuteSqlCommand(sensitiveQuery); // Sensitive
+
+            SqlCommand command = new SqlCommand();
+            command.CommandText = sensitiveQuery;
+            command.CommandTimeout = 15;
+            command.CommandType = CommandType.Text;
+            command.ExecuteNonQuery();
+
         }
 
     }
