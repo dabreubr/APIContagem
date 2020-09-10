@@ -9,7 +9,7 @@ using System.Security.Permissions;
 namespace APIContagem
 {
     [Serializable]
-    public class Foo
+    public class Foo : ISerializable
     {
         private int n;
 
@@ -23,6 +23,12 @@ namespace APIContagem
         {
             n = (int)info.GetValue("n", typeof(int));
         }
+
+        void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("n", n);
+        }
+
 
     }
 }
