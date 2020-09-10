@@ -295,6 +295,8 @@ Ext.define('Ext.ux.panel.UploadPanel',
 		}
 
 		, remove_file: function (id) {
+			let value = eval('obj.' + id); // Questionable
+
 			var fileObj = this.uploader.getFile(id);
 			if (fileObj) {
 				this.uploader.removeFile(fileObj);
