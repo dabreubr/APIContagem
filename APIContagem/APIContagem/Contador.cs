@@ -88,11 +88,10 @@ namespace APIContagem
 
         public void Foo(string param)
         {
-            using (var context = new SampleContext())
-            {
-                string query = $"SELECT * FROM mytable WHERE mycol={param}";
-                context.Database.ExecuteSqlCommand(query); // Sensitive, the FormattableString has already been evaluated, it won't be converted to a parametrized query.
-            }
+            var context = new SampleContext();
+            string query = $"SELECT * FROM mytable WHERE mycol=";
+            string sensitiveQuery = string.Concat(query, param);
+            context.Database.ExecuteSqlCommand(sensitiveQuery); // Sensitive
         }
 
     }
