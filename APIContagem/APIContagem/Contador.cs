@@ -90,14 +90,16 @@ namespace APIContagem
 
         public void Foo(string param)
         {
+            SqlConnection conn = new SqlConnection();
             string query = $"SELECT * FROM mytable WHERE mycol=";
-            string sensitiveQuery = string.Concat(query, param);
 
-            SqlCommand command = new SqlCommand();
-            command.CommandText = sensitiveQuery;
-            command.CommandTimeout = 15;
-            command.CommandType = CommandType.Text;
-            command.ExecuteNonQuery();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = string.Concat(query, param);
+            cmd.CommandTimeout = 15;
+            cmd.CommandType = CommandType.Text;
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
 
         }
 
