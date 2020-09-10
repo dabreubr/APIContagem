@@ -47,6 +47,15 @@
       </Parameters>
     </Rule>
     <Rule>
+      <Key>S2068</Key>
+      <Parameters>
+        <Parameter>
+          <Key>credentialWords</Key>
+          <Value>password, passwd, pwd</Value>
+        </Parameter>
+      </Parameters>
+    </Rule>
+    <Rule>
       <Key>S2342</Key>
       <Parameters>
         <Parameter>
