@@ -90,7 +90,7 @@ namespace APIContagem
 
         public void Foo(string param)
         {
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection("Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;");
             string query = $"SELECT * FROM mytable WHERE mycol=";
 
             SqlCommand cmd = conn.CreateCommand();

@@ -17,6 +17,7 @@ namespace APIContagem
             var dsa1 = new DSACryptoServiceProvider(); // Noncompliant - default key size is 1024
             var simpleDES = new DESCryptoServiceProvider(); // Noncompliant: DES works with 56-bit keys allow attacks via exhaustive search
             var tripleDES = new TripleDESCryptoServiceProvider();
+            RSACryptoServiceProvider RSA = new RSACryptoServiceProvider(1024); // Noncompliant
 
             CreateHostBuilder(args).Build().Run();
 

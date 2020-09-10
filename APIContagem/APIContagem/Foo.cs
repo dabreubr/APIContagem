@@ -1,0 +1,28 @@
+﻿using System;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Security;
+using System.Security.Permissions;
+
+
+namespace APIContagem
+{
+    [Serializable]
+    public class Foo
+    {
+        private int n;
+
+        [FileIOPermissionAttribute(SecurityAction.Demand, Unrestricted = true)]
+        public Foo()
+        {
+            n = -1;
+        }
+
+        protected Foo(SerializationInfo info, StreamingContext context) // Noncompliant
+        {
+            n = (int)info.GetValue("n", typeof(int));
+        }
+
+    }
+}
