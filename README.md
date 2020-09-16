@@ -1,20 +1,13 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# APIContagem Demo DevSecOps 
+API de Contagem utilizada como exemplo na esteira DevSecOps do Azure DevOps com Sonarqube.
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# Primeiros Passos
+1.	Requerimentos: Visual Studio 2019 e .NetCore 3.1
+2.	Dependências: SonarQube e Azure DevOps
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Os arquivos JSON e YAML na raiz são os templates de Build utilizados na esteira de integração contínua no Azure DevOps.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+# Build
+Para importar o arquivo JSON no Azure DevOps, utilizar o tópico 4 (*Task 4: Import Continuous Integration Build pipeline definition into Azure DevOps and kick off a build*), do link abaixo:
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+- [CI and CD with Azure DevOps - Quickstart](https://microsoft.github.io/PartsUnlimited/pandp/200.1x-PandP-CICDQuickstartwithVSTS.html)
